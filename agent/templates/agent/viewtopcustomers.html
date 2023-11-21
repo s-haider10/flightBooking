@@ -1,0 +1,9 @@
+{% extends 'accounts/home3.html' %}
+{% block content %}
+Hi Agent! You can View your Top Customers Here
+{% if plot_url %}
+<img src="data:image/png;base64, {{ plot_url }}" alt="">
+<br>
+
+{% endif %}
+{% endblock %}
