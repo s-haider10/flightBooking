@@ -1,0 +1,94 @@
+{% extends 'accounts/home2.html' %}
+{% if message %}
+
+{{ message }}
+
+{% endif %}
+
+{% block content %}
+
+
+<div id="">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="">
+                    <div id="success"></div>
+                    <h3>Search Flights</h3>
+                    <br>
+                    <form action="{% url 'customer_search_results' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="control-group col-sm-6">
+                                <label>Departure Airport</label>
+                                <select name="Departure Airport" class="form-control">
+                                  <option value="none">Please Select One</option>
+                                  {% if departure_airports %}
+                                    {% for airport in departure_airports %}
+                                    <option value="{{airport}}">{{airport}}</option>
+                                    {% endfor %}
+                                  {% endif %}
+
+                                </select>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group col-sm-6">
+                                <label>Departure City</label>
+                                <select name="Departure City" class="form-control">
+                                  <option value="none">Please Select One</option>
+                                  {% if departure_airports_city %}
+                                    {% for city in departure_airports_city %}
+                                    <option value="{{city}}">{{city}}</option>
+                                    {% endfor %}
+                                  {% endif %}
+
+                                </select>                                <p class="help-block text-danger"></p>
+                            </div>
+
+                            <div class="control-group col-sm-6">
+                                <label>Destination Airport</label>
+                                <select name="Destination Airport" class="form-control">
+                                  <option value="none">Please Select One</option>
+                                  {% if destination_airports %}
+                                    {% for airport in destination_airports %}
+                                    <option value="{{airport}}">{{airport}}</option>
+                                    {% endfor %}
+                                  {% endif %}
+
+                                </select>                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group col-sm-6">
+                                <label>Destination City</label>
+                                <select name="Destination City" class="form-control">
+                                  <option value="none">Please Select One</option>
+                                  {% if destination_airports_city %}
+                                    {% for city in destination_airports_city %}
+                                    <option value="{{city}}">{{city}}</option>
+                                    {% endfor %}
+                                  {% endif %}
+
+                                </select>                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group col-sm-6">
+                                <label>Date</label>
+                                <input type="date" name="Date" class="form-control">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="button"><button type="submit" class = "btn btn-secondary">Search</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</form>
+
+<br>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'accounts/home2.html' %} {% block content %}
+<h4>Here are your search results:</h4>
+<table class="table table-hover">
+  <tr>
+    <th>Airline Name</th>
+    <th>Flight Number</th>
+    <th>Departure Airport</th>
+    <th>Departure Date and Time</th>
+    <th>Arrival Airport</th>
+    <th>Arrival Date and Time</th>
+    <th>Price(In USD)</th>
+    <th>Status</th>
+    <th>Airplane ID</th>
+    <th>Number of Seats Left</th>
+    <th>Tickets</th>
+  </tr>
+
+  {% for flight in final_results %}
+  <form class="" action="{% url 'purchaseticket' %}" method="POST">
+    {% csrf_token %}
+    <tr name="choice">
+      {% for x in flight %}
+      <th>{{x}}</th>
+      {% endfor %}
+      <th>
+        <select id="ticket" class="btn btn-secondary" name="choice">
+          <option value="{{flight}}">Yes</option>
+        </select>
+      </th>
+      <th>
+        <input class="btn btn-light" type="submit" value="Buy Ticket" />
+      </th>
+    </tr>
+    <br />
+    <br />
+  </form>
+  {% endfor %}
+  <br />
+</table>
+{% endblock %}
