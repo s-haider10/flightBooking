@@ -1,0 +1,37 @@
+{% extends 'accounts/home.html' %}
+
+
+{% block content %}
+
+<h5>Flight Status for your Flight:</h5>
+<br>
+
+<table class="table table-hover">
+  <tr>
+    <th>Airline Name</th>
+    <th>Flight Number</th>
+    <th>Departure Airport</th>
+    <th>Departure Time</th>
+    <th>Arrival Airport</th>
+    <th>Arrival Time</th>
+    <th>Seats Left</th>
+    <th>Status</th>
+    <th>Airplane ID</th>
+
+  </tr>
+
+{% if result %}
+
+{% for a in result %}
+
+<th>{{a}}</th>
+
+
+{% endfor %}
+
+
+{% endif %}
+</table>
+<br>
+
+{% endblock %}

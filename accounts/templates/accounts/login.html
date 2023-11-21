@@ -1,0 +1,83 @@
+{% extends 'accounts/home.html' %}
+
+
+{% block content %}
+
+
+{{ current.user }}
+
+{% if message %}
+
+{{ message }}
+
+{% endif %}
+
+<!-- <form action="{% url 'login' %}" method="POST">
+  {% csrf_token %}
+  Role:
+  <select class="" name="type">
+    <option value="">-- Please Select One --</option>
+    <option value="customer">Customer</option>
+    <option value="agent">Agent</option>
+    <option value="staff">Staff</option>
+  </select>
+  <br>
+  <br>
+  Username or Email ID:
+  <br>
+  <input type="text" name="username">
+  <br>
+  Password:
+  <br>
+  <input type="password" name="password">
+  <br>
+  <br>
+  <input class="btn btn-primary" type="submit" value="Login!">
+</form> -->
+<div id="">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="">
+                    <div id="success"></div>
+                    <h3>Enter your Credentials</h3>
+                    <br>
+                    <form action="{% url 'login' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="control-group col-sm-6">
+                                <label>Email ID</label>
+                                <input type="text" name="username" class="form-control" id="fname" placeholder="name@gmail.com"/>
+                                <p class="help-block text-danger"></p >
+                            </div>
+                            <div class="control-group col-sm-6">
+                                <label>Password</label>
+                                <input type="password" name="password" class="form-control" id="lname" placeholder="Password"/>
+                                <p class="help-block text-danger"></p >
+                            </div>
+                            <div class="control-group col-sm-6">
+                                <label>Role</label>
+                                <br>
+                                <select class="form-control" name="type">
+                                  <option value="">-- Please Select One --</option>
+                                  <option value="customer">Customer</option>
+                                  <option value="agent">Agent</option>
+                                  <option value="staff">Staff</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="button"><button type="submit" class="btn btn-secondary">Sign In</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</form>
+<br>
+{% endblock %}

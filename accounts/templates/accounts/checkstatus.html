@@ -1,0 +1,65 @@
+{% extends 'accounts/home.html' %} Hi Check Status of your flight. Please add in
+the following details to check yoru flight status.
+
+<br />
+{% if message %} {{message}} {% endif %} {% block content %}
+
+<div id="">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="">
+          <div id="success"></div>
+          <h3>Check Status</h3>
+          <br />
+          <form class="" action="{% url 'checkstatus' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-row">
+              <div class="control-group col-sm-6">
+                <label>Flight Number</label>
+                <input
+                  type="text"
+                  name="flight_num"
+                  class="form-control"
+                  id="fname"
+                  placeholder=" 607"
+                />
+                <p class="help-block text-danger"></p>
+              </div>
+              <div class="control-group col-sm-6">
+                <label>Departure Date</label>
+                <input
+                  type="date"
+                  name="dp_date"
+                  class="form-control"
+                  id="lname"
+                />
+                <p class="help-block text-danger"></p>
+              </div>
+              <div class="control-group col-sm-6">
+                <label>Arrival Date</label>
+                <input
+                  type="date"
+                  name="ar_date"
+                  class="form-control"
+                  id="lname"
+                />
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <br />
+
+            <div class="button">
+              <button type="submit" class="btn btn-secondary">
+                View Status
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+
+{% endblock %}

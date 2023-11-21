@@ -1,0 +1,33 @@
+{% extends 'accounts/home2.html' %} {% block content %}
+
+<h4 class="text-center">User Registration</h4>
+
+<div id="amenities" class="text-center home-amenities">
+  <div
+    id="amenities"
+    class="btn-group-vertical text-center"
+    role="group"
+    aria-label="Basic example"
+  >
+    <a
+      href="{% url 'customersignup' %}"
+      class="btn btn-secondary text-center"
+      type="button"
+      >Customer Signup</a
+    >
+    <a
+      href="{% url 'staffsignup' %}"
+      class="btn btn-secondary text-center"
+      type="button"
+      >Staff Signup</a
+    >
+    <a
+      href="{% url 'agentsignup' %}"
+      class="btn btn-secondary text-center"
+      type="button"
+      >Booking Agent Signup</a
+    >
+  </div>
+</div>
+<br />
+{% endblock %}

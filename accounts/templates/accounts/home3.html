@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+
+    <title>Qilin Travels</title>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'agenthome' %}">Home | Qilin</a >
+        <lb />
+        <ul class="navbar-nav me-auto">
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="{% url 'checkstatus' %}"
+              >View Flight Status</a
+            >
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'agentsearchflights' %}"
+              >Search Flights</a
+            >
+          </li>
+
+          {% if not user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'login' %}"
+              >Login
+              <span class="visually-hidden">(current)</span>
+            </a >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'signup' %}"
+              >Register
+              <span class="visually-hidden">(current)</span>
+            </a >
+          </li>
+          {% endif %} {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'logout' %}"
+              >Logout
+              <span class="visually-hidden">(current)</span>
+            </a >
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+  </head>
+
+  <body>
+    <!-- Header Section Start -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <header id="header">
+      <a href="{% url 'home' %}" class="logo"></a >
+      <div class="mobile-menu-btn"><i class="fa fa-bars"></i></div>
+      <nav class="main-menu top-menu">
+        <ul></ul>
+      </nav>
+    </header>
+
+    <div id="welcome">
+      <div class="container text-center">
+        <h3>Agent Air Reservation System</h3>
+        <p></p >
+      </div>
+    </div>
+
+    {% if message %}
+
+    <h5>{{ message }}</h5>
+
+    {% endif %} {% block content %} {% endblock %}
+
+    <div id="amenities" class="home-amenities text-center">
+      <div class="container">
+        <div class="section-header">
+          <h2>Explore! </h2>
+        </div>
+        <div
+          class="btn-group text-center"
+          role="group"
+          aria-label="Basic example"
+        >
+          <a
+            type="button"
+            class="btn btn-secondary"
+            href="{% url 'agentsearchflights' %}"
+          >
+            Search Flights</a
+          >
+
+          <!-- <a
+            type="button"
+            class="btn btn-secondary"
+            <a
+            href="{% url 'search_flight' %}"
+          >
+            View Upcoming Flights
+          </a > -->
+
+          <a
+            type="button"
+            class="btn btn-secondary"
+             href="{% url 'viewcommission' %}">
+              View My Commission
+            </a >
+            <a
+            type="button"
+            class="btn btn-secondary"
+             href="{% url 'viewtopcustomers' %}">
+              View Top Customers
+            </a >
+          </div>
+        </div>
+      </div>
+    </div
+  
+    
+  </body>
+</html>

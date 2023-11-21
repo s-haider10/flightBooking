@@ -1,0 +1,159 @@
+{% extends 'accounts/home.html' %} {% block content %}
+<h1 class="text-center">Customer Registration</h1>
+
+{% if message %} {{ message }} {% endif %}
+
+<form class="" action="{% url 'customersignup' %}" method="POST">
+  {% csrf_token %}
+  <div class="container">
+    <div class="form-group">
+      <label class="col-form-label" for="inputDefault"> Email (Username)</label>
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        value=""
+        placeholder="name@gmail.com"
+        id="inputDefault"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label class="col-form-label" for="inputDefault"> Name </label>
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        value=""
+        placeholder="name"
+        id="inputDefault"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label class="col-form-label" for="inputDefault"> Date Of Birth </label>
+      <input
+        type="date"
+        class="form-control"
+        name="date_of_birth"
+        value=""
+        id="inputDefault"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label class="col-form-label" for="inputDefault"> Password </label>
+      <input
+        type="password"
+        class="form-control"
+        name="password"
+        value=""
+        placeholder="Password"
+        id="inputDefault"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label class="col-form-label" for="inputDefault"> Building Number </label>
+      <input
+        type="text"
+        class="form-control"
+        name="building_number"
+        value=""
+        placeholder="T3"
+        id="inputDefault"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label class="col-form-label" for="inputDefault"> Street Address </label>
+      <input
+        type="text"
+        class="form-control"
+        name="street_address"
+        value=""
+        placeholder="123 Road"
+        id="inputDefault"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label class="col-form-label" for="inputDefault"> City </label>
+      <input
+        type="text"
+        class="form-control"
+        name="city"
+        value=""
+        placeholder="City"
+        id="inputDefault"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label class="col-form-label" for="inputDefault"> State </label>
+      <input
+        type="text"
+        class="form-control"
+        name="state"
+        value=""
+        placeholder="State"
+        id="inputDefault"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label class="col-form-label" for="inputDefault"> Phone Number </label>
+      <input
+        type="text"
+        class="form-control"
+        name="phone_num"
+        value=""
+        placeholder="123456789"
+        id="inputDefault"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label class="col-form-label" for="inputDefault"> Passport Number </label>
+      <input
+        type="text"
+        class="form-control"
+        name="passport_num"
+        value=""
+        placeholder="123456789"
+        id="inputDefault"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label class="col-form-label" for="inputDefault">
+        Passport Expiration Date
+      </label>
+      <input
+        type="date"
+        class="form-control"
+        name="passport_expiration"
+        value=""
+        id="inputDefault"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label class="col-form-label" for="inputDefault"> Passport Origin </label>
+      <input
+        type="text"
+        class="form-control"
+        name="passport_country"
+        value=""
+        placeholder="Country"
+        id="inputDefault"
+        required
+      />
+    </div>
+  </div>
+  <div class="text-center mt-3">
+    <input class="btn btn-primary" type="submit" value="Submit" />
+  </div>
+</form>
+
+{% endblock %}

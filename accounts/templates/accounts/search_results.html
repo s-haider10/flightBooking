@@ -1,0 +1,40 @@
+{% extends 'accounts/home.html' %}
+
+{% block content %}
+
+<h3>Your Search Results</h3>
+
+<br>
+
+
+
+<table class="table table-hover">
+  <tr>
+    <th>Airline Name</th>
+    <th>Flight Number</th>
+    <th>Departure Airport</th>
+    <th>Departure Time</th>
+    <th>Arrival Airport</th>
+    <th>Arrival Time</th>
+    <th>Seats Left</th>
+    <th>Status</th>
+    <th>Airplane ID</th>
+
+  </tr>
+
+{% for a in results %}
+
+  <tr>
+  {% for i in a %}
+    <th>{{i}}</th>
+  {% endfor %}
+  </tr>
+
+{% endfor %}
+
+
+
+
+</table>
+<br>
+{% endblock %}

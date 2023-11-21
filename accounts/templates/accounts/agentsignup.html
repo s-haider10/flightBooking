@@ -1,0 +1,39 @@
+{% extends 'accounts/home.html' %} {% block content %}
+
+<h1 class="text-center">Agent Registration</h1>
+
+<form class="" action="{% url 'agentsignup' %}" method="POST">
+  {% csrf_token %}
+  <div class="container">
+    <div class="form-group">
+      <label class="col-form-label" for="inputDefault"> Email (Username)</label>
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        value=""
+        placeholder="name@gmail.com"
+        id="inputDefault"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label class="col-form-label" for="inputDefault"> Password </label>
+      <input
+        type="password"
+        class="form-control"
+        name="password"
+        value=""
+        placeholder="Password"
+        id="inputDefault"
+        required
+      />
+    </div>
+  </div>
+
+  <div class="text-center mt-3">
+    <input class="btn btn-primary" type="submit" value="Submit" />
+  </div>
+</form>
+
+{% endblock %}
