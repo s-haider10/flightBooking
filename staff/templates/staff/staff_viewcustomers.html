@@ -1,0 +1,10 @@
+{% extends 'accounts/home4.html' %} {% block content %}
+
+<a href="{% url 'staffhome' %}" class="btn btn-secondary">Home</a>
+
+Hi! Here is the List of Customers on the Flight you Selected {% if message %} {{
+message }} {% endif %} {% if lst %} {% for l in lst %}
+<br />
+{{l}}
+<br />
+{% endfor %} {% endif %} {% endblock %}

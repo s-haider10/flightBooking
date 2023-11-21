@@ -1,0 +1,37 @@
+{% extends 'accounts/home4.html' %} {% block content %}
+
+<h1 class="text-center">New Airplane Creation</h1>
+
+{% if error %}
+<div class="alert alert-danger">{{ error }}</div>
+{% endif %}
+
+<form class="" action="{% url 'confirmation_new_airplane' %}" method="POST">
+  {% csrf_token %}
+
+  <div class="container">
+    <div class="form-group">
+      <label class="col-form-label" for="airline">Airline</label>
+      <select class="form-control" name="Airline" id="airline">
+        <option value="{{staff_airl}}">{{staff_airl}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="col-form-label" for="seats">Number of Seats</label>
+      <input
+        type="number"
+        class="form-control"
+        name="seats"
+        value=""
+        placeholder="Number of Seats"
+        id="seats"
+        required
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add New Airplane</button>
+  </div>
+</form>
+
+{% endblock %}

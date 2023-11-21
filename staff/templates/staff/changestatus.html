@@ -1,0 +1,50 @@
+{% extends 'accounts/home4.html' %} {% block content %}
+
+<h3 class="text-center">Change flight status here</h3>
+
+{% if message %}
+<div class="alert alert-danger">{{ message }}</div>
+{% endif %}
+
+<br /><br />
+
+<form class="" action="{% url 'update_status' %}" method="POST">
+  {% csrf_token %}
+
+  <div class="container">
+    <div class="form-group">
+      <label class="col-form-label" for="airline">Airline:</label>
+      <select class="form-control" name="Airline" id="airline">
+        <option value="none">-- Please Select One --</option>
+        <option value="{{staff_airl}}">{{staff_airl}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="col-form-label" for="flightnum">Flight Number:</label>
+      <select class="form-control" name="flightnum" id="flightnum">
+        <option value="">Select Flight Number</option>
+
+        {% for f in flightnum %}
+        <option value="{{f}}">{{f}}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="col-form-label" for="status">New Status:</label>
+      <select class="form-control" name="status" id="status">
+        <option value="">--Select New Status--</option>
+        <option value="Upcoming">Upcoming</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Delayed">Delayed</option>
+      </select>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Update Status</button>
+    </div>
+  </div>
+</form>
+
+{% endblock %}

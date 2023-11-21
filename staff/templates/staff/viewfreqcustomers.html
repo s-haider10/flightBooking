@@ -1,0 +1,40 @@
+{% extends 'accounts/home4.html' %} {% block content %}
+<div class="container">
+  <h3>Frequently Flying Customers</h3>
+</div>
+{% for cust in frequent_customers %}
+<div class="container">
+  <div
+    class="card text-white bg-warning mb-3 text-center"
+    style="max-width: 20rem"
+  >
+    <div class="card-body">
+      <h4 class="card-title">{{cust}}</h4>
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+
+<form class="" action="{% url 'customerhistory' %}" method="POST">
+  {% csrf_token %}
+
+  <div class="container form-group" name="cust_email">
+    <label for="exampleSelect1" class="form-label mt-4"
+      ><h3>Customer History</h3></label
+    >
+    <select class="form-select" id="exampleSelect1" name="cust_email">
+      {% for c in email_cust %}
+      <option value="{{c}}">{{c}}</option>
+      {% endfor %}
+    </select>
+    <input
+      type="submit"
+      name=""
+      value="View Customer's Flights"
+      class="btn btn-secondary"
+    />
+  </div>
+</form>
+
+{% endblock %}

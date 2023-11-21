@@ -1,0 +1,24 @@
+{% extends 'accounts/home4.html' %} {% block content %}
+<h3>Hi the New Plane has been added succeffuly.</h3>
+
+<br />
+<a href="{% url 'staffhome' %}" class="btn btn-secondary"
+  >Return to Home Page</a
+>
+<br />
+
+Here are all the planes that your airline currently owns:
+<br />
+<br />
+
+<table>
+  <tr>
+    Airplane Id, Number of Seats
+  </tr>
+</table>
+
+{% for l in lst %}
+<br />
+<th>{{l}}</th>
+<br />
+{% endfor %} {% endblock %}

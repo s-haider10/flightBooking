@@ -1,0 +1,36 @@
+{% extends 'accounts/home4.html' %} {% block content %}
+
+<h4 class="text-center">Change Permissions</h4>
+
+<form class="" action="{% url 'changepermission' %}" method="POST">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="exampleSelect1" class="form-label mt-4">
+      Select Employee ID</label
+    >
+    <select class="form-select" id="exampleSelect1" name="email">
+      {% for e in employees %}
+      <option value="{{e}}">{{e}}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleSelect1" class="form-label mt-4"
+      >Employee Permision</label
+    >
+    <select class="form-select" id="exampleSelect1">
+      <option value="admin">Admin</option>
+      <option value="operator">Operator</option>
+    </select>
+  </div>
+
+  <input
+    type="submit"
+    name=""
+    value="UPDATE Permission"
+    class="btn btn-secondary"
+  />
+</form>
+
+{% endblock %}

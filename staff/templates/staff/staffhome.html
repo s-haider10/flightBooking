@@ -1,0 +1,121 @@
+{% extends 'accounts/home4.html' %} {% block content %}
+
+<h1 class="text-center">Welcome Airline Staff!</h1>
+
+{% if message %} {{ message }} {% endif %}
+<h4 class="text-center">
+  Here are your Airline's Upcoming Flights (in the next 30 days):
+</h4>
+<br />
+<br />
+
+<br />
+
+<table class="table table-hover">
+  <tr>
+    <th>Airline Name</th>
+    <th>Flight Number</th>
+    <th>Departure Airport</th>
+    <th>Departure Time</th>
+    <th>Arrival Airport</th>
+    <th>Arrival Time</th>
+    <th>Seats Left</th>
+    <th>Status</th>
+    <th>Airplane ID</th>
+  </tr>
+
+  {% for a in lst %}
+
+  <tr>
+    {% for i in a %}
+    <th>{{i}}</th>
+    {% endfor %}
+  </tr>
+
+  {% endfor %}
+</table>
+
+<div id="">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <div class="">
+                  <div id="success"></div>
+                  <h3>Search Flights</h3>
+                  <br>
+                  <form action="{% url 'search_for_flight' %}" method="POST">
+                      {% csrf_token %}
+                      <div class="form-row">
+                          <div class="control-group col-sm-6">
+                              <label>Departure Airport</label>
+                              <select name="Departure Airport" class="form-control">
+                                <option value="none">Please Select One</option>
+                                
+                                {% if dp_lst %} {% for airport in dp_lst %}
+                                  <option value="{{airport}}">{{airport}}</option>
+                                  {% endfor %}
+                                {% endif %}
+
+                              </select>
+                              <p class="help-block text-danger"></p>
+                          </div>
+                          <div class="control-group col-sm-6">
+                              <label>Departure City</label>
+                              <select name="Departure City" class="form-control">
+                                <option value="none">Please Select One</option>
+                                
+                                {% if dac_list %} {% for city in dac_list %}
+                                  <option value="{{city}}">{{city}}</option>
+                                  {% endfor %}
+                                {% endif %}
+
+                              </select>                                <p class="help-block text-danger"></p>
+                          </div>
+
+                          <div class="control-group col-sm-6">
+                              <label>Destination Airport</label>
+                              <select name="Destination Airport" class="form-control">
+                                <option value="none">Please Select One</option>
+                                {% if da_lst %} {% for airport in da_lst %}
+                                  
+                                  <option value="{{airport}}">{{airport}}</option>
+                                  {% endfor %}
+                                {% endif %}
+
+                              </select>                                <p class="help-block text-danger"></p>
+                          </div>
+                          <div class="control-group col-sm-6">
+                              <label>Destination City</label>
+                              <select name="Destination City" class="form-control">
+                                <option value="none">Please Select One</option>
+                                {% if dtac_list %} {% for city in dtac_list %}
+                                  
+                                  <option value="{{city}}">{{city}}</option>
+                                  {% endfor %}
+                                {% endif %}
+
+                              </select>                                <p class="help-block text-danger"></p>
+                          </div>
+                          
+                          <div class="control-group col-sm-6">
+                              <label>Date</label>
+                              <input type="date" name="Date" class="form-control">
+                              <p class="help-block text-danger"></p>
+                          </div>
+                      </div>
+                      <br>
+
+                      <div class="button"><button type="submit" class = "btn btn-secondary">Search</button></div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+</form>
+
+<br>
+{% endblock %}

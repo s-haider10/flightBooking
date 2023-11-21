@@ -1,0 +1,41 @@
+{% extends 'accounts/home4.html' %} {% block content %}
+
+<h3>Hi Staff, here are you Search Results.</h3>
+<br />
+
+{% if results %} {% for r in results %}
+<br />
+{{r}}
+<br />
+{% endfor %} {% endif %}
+
+<h1>View Customers</h1>
+
+<br />
+
+Enter the following details to view all customers:
+<br />
+<br />
+<form class="" action="{% url 'staff_viewcustomers' %}" method="POST">
+  {% csrf_token %} Flight Number:
+
+  <select class="" name="flightnum">
+    {% if flightnum %} {% for f in flightnum %}
+    <option value="{{f}}">{{f}}</option>
+    {% endfor %} {% endif %}
+  </select>
+  <br />
+
+  Airline:
+
+  <select class="" name="airline">
+    {% if airline %}
+    <option value="{{airline}}">{{airline}}</option>
+    {% endif %}
+  </select>
+  <br />
+
+  <input type="submit" value="View Customers" />
+</form>
+
+{% endblock %}

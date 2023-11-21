@@ -1,0 +1,43 @@
+{% extends 'accounts/home4.html' %} {% block content %}
+
+<h1 class="text-center">New Airport Creation</h1>
+
+{% if error %}
+<div class="alert alert-danger">{{ error }}</div>
+{% endif %}
+
+<div class="container">
+  <form class="" action="{% url 'airport_add' %}" method="POST">
+    {% csrf_token %}
+
+    <div class="form-group">
+      <label class="col-form-label" for="name">Airport Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        value=""
+        placeholder="Airport Name"
+        id="name"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label class="col-form-label" for="city">City</label>
+      <input
+        type="text"
+        class="form-control"
+        name="city"
+        value=""
+        placeholder="City"
+        id="city"
+        required
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add New Airport</button>
+  </form>
+</div>
+
+{% endblock %}
