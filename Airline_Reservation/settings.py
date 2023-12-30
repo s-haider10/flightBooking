@@ -86,7 +86,7 @@ DATABASES = {
         'NAME': 'new_airline',
         'HOST': 'localhost',
         'USER': 'root',
-        'PASSWORD': 'Haider110!',
+        'PASSWORD': '',
         'PORT': '3306',
 
 
